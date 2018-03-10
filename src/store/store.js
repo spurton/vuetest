@@ -22,11 +22,11 @@ const actions = {
 const mutations = {
   SET_TOP_STORIES(state, value) {
     state.topStories = value;
-  },
+  }
 };
 
 const getters = {
-  topStories: state => state.topStories,
+  topStories: state => state.topStories
 }
 
 const state = {
