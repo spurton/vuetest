@@ -36,6 +36,8 @@ export default {
           return list;
         }, {})
       }
+
+      return null;
     },
     publishedDate: dateTimeString => {
       const parsedDate = new Date(dateTimeString);
