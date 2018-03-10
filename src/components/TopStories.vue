@@ -28,7 +28,7 @@ export default {
   methods: {
     groupedStories: (topStories, size=10) => {
       if (topStories) {
-        return topStories.slice(size).reduce((list, story) => {
+        return topStories.slice(0, size).reduce((list, story) => {
           const { section } = story;
 
           list[section] = list[section] || [];
