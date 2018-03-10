@@ -18,8 +18,8 @@ module.exports = {
       .assert.containsText('h1', `Top Stories for ${todaysDate}`)
       .assert.elementPresent('#story-list')
       .waitForElementVisible('h3', 5000)
-      .assert.containsText('strong', 'U.S.')
-      .assert.containsText('h3', 'At the Crossroads of Church and Race, a Reporter Glimpses His Childhood - 3/9/2018, 2:00:01 AM')
+      .assert.containsText('strong', 'Briefing')
+      .assert.containsText('h3', 'North Korea, Florida, Martin Shkreli: Your Friday Evening Briefing - 3/9/2018, 3:04:32 PM')
       .end()
   },
 
