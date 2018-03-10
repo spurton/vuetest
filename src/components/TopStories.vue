@@ -5,7 +5,7 @@
         <strong>{{name}}</strong>
         <ul>
           <li v-for="story in stories">
-            <h3>{{story.title}} - {{story.published_date}}</h3>
+            <h3>{{story.title}} - {{publishedDate(story.published_date)}}</h3>
             <p>{{story.abstract}}</p>
             <p><a v-bind:href="story.url">Read more...</a></p>
           </li>
@@ -36,6 +36,10 @@ export default {
           return list;
         }, {})
       }
+    },
+    publishedDate: dateTimeString => {
+      const parsedDate = new Date(dateTimeString);
+      return parsedDate.toLocaleString('en-US');
     }
   }
 };
