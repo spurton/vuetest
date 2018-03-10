@@ -1,7 +1,7 @@
 <template>
   <div class="top-stories">
     <ol id="story-list">
-      <li v-for="(stories, name, index) in groupedStories(topStories)">
+      <li v-for="(stories, name) in groupedStories(topStories)">
         <strong>{{name}}</strong>
         <ul>
           <li v-for="story in stories">
