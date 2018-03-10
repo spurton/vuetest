@@ -1,6 +1,17 @@
 <template>
   <div class="top-stories">
-    {{ topStories }}
+    <ol id="story-list">
+      <li v-for="(stories, name, index) in groupedStories(topStories)">
+        <strong>{{name}}</strong>
+        <ul>
+          <li v-for="story in stories">
+            <h3>{{story.title}} - {{story.published_date}}</h3>
+            <p>{{story.abstract}}</p>
+            <p><a v-bind:href="story.url">Read more...</a></p>
+          </li>
+        </ul>
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -11,9 +22,22 @@ export default {
   name: 'TopStories',
   computed: {
     ...mapGetters([
-      'topStories',
-    ]),
+      'topStories'
+    ])
   },
+  methods: {
+    groupedStories: (topStories, size=10) => {
+      if (topStories) {
+        return topStories.slice(size).reduce((list, story) => {
+          const { section } = story;
+
+          list[section] = list[section] || [];
+          list[section].push(story);
+          return list;
+        }, {})
+      }
+    }
+  }
 };
 </script>
 
@@ -21,5 +45,8 @@ export default {
 <style scoped>
 h1 {
   font-weight: normal;
+}
+#story-list {
+  text-align: left;
 }
 </style>
