@@ -15,7 +15,7 @@ const actions = {
     return fetch(request)
       .then(response => response.json())
       .then(parsed => commit('SET_TOP_STORIES', parsed.results))
-      .catch(() => commit('SET_TOP_STORIES', backupData));
+      .catch(() => commit('SET_TOP_STORIES', backupData.results));
   },
 };
 
